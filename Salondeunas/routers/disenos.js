@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 // Importar el controlador de diseños
-const DiseñoController = require('../Controller/DisenoController');
+const DisenoController = require('../Controller/DisenoController');
 
 // Importar los middlewares de autenticación y autorización
 const { verificarToken, soloAdmin } = require('../Middlewares/authMiddleware');
