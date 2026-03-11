@@ -30,3 +30,23 @@ function verificarToken(req, res, next) {
         return res.status(401).json({ message: 'Token inválido o expirado' });
     }
 }
+
+// Middleware para verificar que el usuario tenga rol de administrador
+function soloAdmin(req, res, next) {
+
+    // Verificar si el rol del usuario decodificado es 'admin'
+    if (req.usuario.rol !== 'admin') {
+
+        // Si no es admin, denegar el acceso con error 403 (prohibido)
+        return res.status(403).json({ message: 'Acceso denegado, se requiere rol admin' });
+    }
+
+    // Si es admin, pasar al siguiente middleware o controlador
+    next();
+}
+
+// Exportar los middlewares para usarlos en los routers
+module.exports = {
+    verificarToken,
+    soloAdmin
+}
