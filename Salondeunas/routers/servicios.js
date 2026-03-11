@@ -1,3 +1,4 @@
+
 const express = require('express');
 const router = express.Router();
 const ServicioController = require('../Controller/ServicioController');
@@ -14,10 +15,6 @@ router.put('/update/:id',   verificarToken, soloAdmin, ServicioController.update
 router.delete('/delete/:id',verificarToken, soloAdmin, ServicioController.deleted);
 
 module.exports = router;
-
-
-
-
 
 
 
