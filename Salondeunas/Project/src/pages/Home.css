@@ -87,6 +87,21 @@
     z-index: 10;
 }
  
+/* Cada punto */
+.punto {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+ 
+/* Punto del slide activo */
+.punto-activo {
+    background: var(--rosa-fuerte);
+    transform: scale(1.3);
+}
 
 /* ── HERO ── */
 .hero {
