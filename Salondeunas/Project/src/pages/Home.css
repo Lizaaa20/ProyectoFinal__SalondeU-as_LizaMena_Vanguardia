@@ -62,6 +62,32 @@
     z-index: 10;
 }
 
+.slider-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+}
+ 
+/* Botón izquierdo */
+.slider-btn-izq {
+    left: 16px;
+}
+ 
+/* Botón derecho */
+.slider-btn-der {
+    right: 16px;
+}
+ 
+/* Puntos indicadores */
+.slider-puntos {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+ 
+
 /* ── HERO ── */
 .hero {
     position: relative;
