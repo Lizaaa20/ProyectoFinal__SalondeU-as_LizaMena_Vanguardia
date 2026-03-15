@@ -1,0 +1,90 @@
+/* Barra de navegación */
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f0d4dd;
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* Contenedor interno del navbar */
+.navbar-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.navbar-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #c9396b;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.navbar-logo:hover {
+    color: #a02555;
+}
+
+/* Lista de links */
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Links individuales */
+.navbar-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Subrayado animado al hacer hover */
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #c9396b;
+    transition: width 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #c9396b;
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+}
+
+/* Botón iniciar sesión */
+.navbar-login {
+    text-decoration: none;
+    color: #c9396b;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 2px solid #c9396b;
+    padding: 6px 18px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.navbar-login:hover {
+    background-color: #c9396b;
+    color: #ffffff;
+}
