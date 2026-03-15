@@ -20,17 +20,10 @@
 }
 
 /* Logo */
-.navbar-logo {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #c9396b;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    transition: color 0.3s ease;
-}
-
-.navbar-logo:hover {
-    color: #a02555;
+.navbar-logo-img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
 }
 
 /* Lista de links */

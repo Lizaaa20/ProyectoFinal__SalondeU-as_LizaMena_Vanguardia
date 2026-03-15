@@ -7,10 +7,8 @@ function Navbar() {
         <nav className="navbar">
             <div className="navbar-container">
 
-                {/* Logo del salón */}
-                <Link to="/" className="navbar-logo">
-                    ✦ Salón de Uñas
-                </Link>
+               <Link to="/" className="navbar-logo">
+               <img src="/src/assets/page_logo.png" alt="Angel Nails" className="navbar-logo-img" /></Link>
 
                 {/* Links de navegación */}
                 <ul className="navbar-links">
