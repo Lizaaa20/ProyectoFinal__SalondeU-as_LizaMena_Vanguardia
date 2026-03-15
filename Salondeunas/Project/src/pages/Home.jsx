@@ -2,6 +2,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
+
+
+// ── Imágenes del slider 
+const sliderImagenes = [
+    { id: 1, src: 'https://www.treatwell.es/partners/wp-content/uploads/sites/16/2023/05/Captura-de-Pantalla-2023-05-15-a-las-15.20.44-1024x685.png', alt: 'Slide 1' },
+    { id: 2, src: 'https://hips.hearstapps.com/hmg-prod/images/le-maise-9-1672919228.jpg', alt: 'Slide 2' },
+    { id: 3, src: 'https://www.parlors.es/wp-content/uploads/2021/02/pedicura-2.png', alt: 'Slide 3' },
+];
+
+
 // Imágenes de la galería 
 const galeriaFotos = [
     { id: 1, src: 'https://miriam.mx/blog/disenos-modernos-de-unas-acrilicas-en-tendencia', alt: 'Diseño 1' },
