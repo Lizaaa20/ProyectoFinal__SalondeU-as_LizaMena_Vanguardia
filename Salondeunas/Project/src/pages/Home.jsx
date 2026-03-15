@@ -1,18 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-
-
-// ── Imágenes del slider 
+// ── Imágenes del slider
 const sliderImagenes = [
     { id: 1, src: 'https://www.treatwell.es/partners/wp-content/uploads/sites/16/2023/05/Captura-de-Pantalla-2023-05-15-a-las-15.20.44-1024x685.png', alt: 'Slide 1' },
     { id: 2, src: 'https://hips.hearstapps.com/hmg-prod/images/le-maise-9-1672919228.jpg', alt: 'Slide 2' },
     { id: 3, src: 'https://www.parlors.es/wp-content/uploads/2021/02/pedicura-2.png', alt: 'Slide 3' },
 ];
 
-
-// Imágenes de la galería 
+// ── Imágenes de la galería
 const galeriaFotos = [
     { id: 1, src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEABV4IfJoiUusZMLPiL3KclKqmhYOyea_g&s', alt: 'Diseño 1' },
     { id: 2, src: 'https://cosmetologas.com/wp-content/uploads/2025/08/french_nails_disenos_03_0825.jpg', alt: 'Diseño 2' },
@@ -24,7 +21,7 @@ const galeriaFotos = [
     { id: 8, src: 'https://ae01.alicdn.com/kf/S4a6aca4f0c8d4874bb2c84141df7df2co.jpg', alt: 'Diseño 8' },
 ];
 
-// Reseñas de clientas
+// ── Reseñas de clientas
 const resenas = [
     {
         id: 1,
@@ -51,6 +48,9 @@ const resenas = [
 
 function Home() {
 
+    // Estado para controlar qué slide está activo
+    const [slideActivo, setSlideActivo] = useState(0);
+
     // Estado para el formulario de contacto
     const [form, setForm] = useState({
         nombre: '',
@@ -58,6 +58,15 @@ function Home() {
         telefono: '',
         mensaje: ''
     });
+
+    // Cambia el slide automáticamente cada 4 segundos
+    useEffect(() => {
+        const intervalo = setInterval(() => {
+            setSlideActivo((prev) => (prev + 1) % sliderImagenes.length);
+        }, 4000);
+        // Limpia el intervalo cuando el componente se desmonta
+        return () => clearInterval(intervalo);
+    }, []);
 
     // Manejar cambios en los campos del formulario
     function handleChange(e) {
@@ -74,11 +83,51 @@ function Home() {
     return (
         <div className="home">
 
+            {/* ── SLIDER AUTOMÁTICO ── */}
+            <section className="slider">
+
+                {/* Renderiza cada imagen del slider */}
+                {sliderImagenes.map((img, index) => (
+                    <div
+                        key={img.id}
+                        className={`slide ${index === slideActivo ? 'activo' : ''}`}
+                    >
+                        <img src={img.src} alt={img.alt} />
+                    </div>
+                ))}
+
+                {/* Botón ir al slide anterior */}
+                <button
+                    className="slider-btn slider-btn-izq"
+                    onClick={() => setSlideActivo((prev) => (prev - 1 + sliderImagenes.length) % sliderImagenes.length)}
+                >
+                    ‹
+                </button>
+
+                {/* Botón ir al slide siguiente */}
+                <button
+                    className="slider-btn slider-btn-der"
+                    onClick={() => setSlideActivo((prev) => (prev + 1) % sliderImagenes.length)}
+                >
+                    ›
+                </button>
+
+                {/* Puntos indicadores */}
+                <div className="slider-puntos">
+                    {sliderImagenes.map((_, index) => (
+                        <span
+                            key={index}
+                            className={`punto ${index === slideActivo ? 'punto-activo' : ''}`}
+                            onClick={() => setSlideActivo(index)}
+                        />
+                    ))}
+                </div>
+
+            </section>
+
             {/* ── HERO ── */}
             <section className="hero">
-                {/* Fondo del salón */}
                 <div className="hero-bg" />
-                {/* Tarjeta central */}
                 <div className="hero-card">
                     <h1>Pide tu cita ahora</h1>
                     <p>Descubre el arte de lucir unas manos perfectas. Reserva tu espacio y déjate mimar por nuestros expertos.</p>
@@ -93,7 +142,6 @@ function Home() {
                     {galeriaFotos.map((foto) => (
                         <div key={foto.id} className="galeria-item">
                             <img src={foto.src} alt={foto.alt} />
-                            {/* Overlay animado al hacer hover */}
                             <div className="galeria-overlay">
                                 <span>Ver diseño</span>
                             </div>
