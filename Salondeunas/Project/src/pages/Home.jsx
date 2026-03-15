@@ -14,7 +14,7 @@ const sliderImagenes = [
 
 // Imágenes de la galería 
 const galeriaFotos = [
-    { id: 1, src: 'https://miriam.mx/blog/disenos-modernos-de-unas-acrilicas-en-tendencia', alt: 'Diseño 1' },
+    { id: 1, src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLEABV4IfJoiUusZMLPiL3KclKqmhYOyea_g&s', alt: 'Diseño 1' },
     { id: 2, src: 'https://cosmetologas.com/wp-content/uploads/2025/08/french_nails_disenos_03_0825.jpg', alt: 'Diseño 2' },
     { id: 3, src: 'https://www.luzdeltajo.net/wp-content/uploads/sites/28/2023/08/los-disenos-de-unas-perladas-verano.jpg', alt: 'Diseño 3' },
     { id: 4, src: 'https://i.blogs.es/4c3da1/468804807_601443412337903_7695306359644392685_n/650_1200.jpeg', alt: 'Diseño 4' },
