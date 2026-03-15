@@ -1,0 +1,356 @@
+/* ── VARIABLES DE COLOR ── */
+:root {
+    --rosa-fuerte: #c9396b;
+    --rosa-claro: #fce4ec;
+    --rosa-hover: #a02555;
+    --gris-texto: #333;
+    --gris-claro: #f9f0f3;
+    --blanco: #ffffff;
+}
+
+/* ── GENERAL ── */
+.home {
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--gris-texto);
+}
+
+/* ── HERO ── */
+.hero {
+    position: relative;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://muchosnegociosrentables.com/wp-content/uploads/2017/10/manicura-haciendo-arreglo-de-manos-2.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.75);
+}
+
+/* Tarjeta central del hero */
+.hero-card {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.88);
+    padding: 40px 50px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 480px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-card h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--gris-texto);
+}
+
+.hero-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 24px;
+}
+
+/* Botón reservar */
+.btn-reservar {
+    background-color: var(--rosa-fuerte);
+    color: var(--blanco);
+    padding: 10px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-reservar:hover {
+    background-color: var(--rosa-hover);
+    color: var(--blanco);
+}
+
+/* ── GALERÍA ── */
+.galeria {
+    padding: 60px 40px;
+    background-color: var(--rosa-claro);
+    text-align: center;
+}
+
+.galeria h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 36px;
+}
+
+/* Grid de 4 columnas */
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Cada item de la galería */
+.galeria-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    /* Animación de entrada escalonada */
+    animation: fadeIn 0.6s ease both;
+}
+
+/* Animación de entrada escalonada para cada foto */
+.galeria-item:nth-child(1) { animation-delay: 0.1s; }
+.galeria-item:nth-child(2) { animation-delay: 0.2s; }
+.galeria-item:nth-child(3) { animation-delay: 0.3s; }
+.galeria-item:nth-child(4) { animation-delay: 0.4s; }
+.galeria-item:nth-child(5) { animation-delay: 0.5s; }
+.galeria-item:nth-child(6) { animation-delay: 0.6s; }
+.galeria-item:nth-child(7) { animation-delay: 0.7s; }
+.galeria-item:nth-child(8) { animation-delay: 0.8s; }
+
+/* Imagen de la galería */
+.galeria-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    /* Zoom suave al hacer hover */
+    transition: transform 0.4s ease;
+}
+
+.galeria-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Overlay rosado que aparece al hacer hover */
+.galeria-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(201, 57, 107, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.galeria-item:hover .galeria-overlay {
+    opacity: 1;
+}
+
+.galeria-overlay span {
+    color: var(--blanco);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border: 2px solid var(--blanco);
+    padding: 8px 20px;
+    border-radius: 20px;
+    /* El texto aparece con un pequeño zoom */
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.galeria-item:hover .galeria-overlay span {
+    transform: scale(1);
+}
+
+/* ── RESEÑAS ── */
+.resenas {
+    padding: 60px 40px;
+    background-color: var(--rosa-claro);
+    text-align: center;
+}
+
+.resenas h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 36px;
+}
+
+/* Grid de 3 columnas para reseñas */
+.resenas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Tarjeta de reseña */
+.resena-card {
+    background: var(--blanco);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: left;
+    /* Animación al hacer hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.resena-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(201, 57, 107, 0.15);
+}
+
+/* Estrellas */
+.estrellas {
+    color: #f5a623;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+
+.resena-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+
+/* Autor de la reseña */
+.resena-autor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.resena-autor img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.resena-autor div {
+    display: flex;
+    flex-direction: column;
+}
+
+.resena-autor strong {
+    font-size: 0.9rem;
+    color: var(--gris-texto);
+}
+
+.resena-autor span {
+    font-size: 0.78rem;
+    color: #999;
+}
+
+/* ── CONTACTO ── */
+.contacto {
+    padding: 60px 40px;
+    background-color: var(--gris-claro);
+    text-align: center;
+}
+
+.contacto h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 36px;
+}
+
+/* Formulario de contacto */
+.contacto-form {
+    background: var(--blanco);
+    border-radius: 12px;
+    padding: 36px;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Grupo de campo */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.88rem;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+/* Inputs y textarea */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--rosa-fuerte);
+}
+
+/* Botón enviar */
+.btn-enviar {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--rosa-fuerte);
+    color: var(--blanco);
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: var(--rosa-hover);
+}
+
+/* ── FOOTER ── */
+.footer {
+    background-color: #2c2c2c;
+    color: #ccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.85rem;
+}
+
+/* ── ANIMACIONES ── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .resenas-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-card {
+        padding: 28px 24px;
+        margin: 0 16px;
+    }
+}
