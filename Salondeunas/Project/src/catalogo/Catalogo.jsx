@@ -3,6 +3,30 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Catalogo.css';
 
+// Todos deben tener ../../assets/
+import esmaltado   from '../assets/Esmaltadosemipermanente.jpg';
+import frenchUnas  from '../assets/frenchuñas.png';
+import limpieza    from '../assets/limpiezauña.jpg';
+import manicura    from '../assets/manicurabasica.jpg';
+import acrilicas   from '../assets/uñasacrilicas.jpg';
+import almendradas from '../assets/uñasalmendradas.jpg';
+import cuadradas   from '../assets/uñascuadradas.png';
+import gel         from '../assets/uñasgel.jpg';
+import nailart     from '../assets/Nailart.jpg';
+
+// Mapa de categoría → imagen local
+const imagenesCategorias = {
+    'Manicure':    manicura,
+    'Pedicure':    limpieza,
+    'Acrilico':    acrilicas,
+    'NailArt':     nailart,
+    'Gel':         gel,
+    'Esmaltado':   esmaltado,
+    'Almendradas': almendradas,
+    'Cuadradas':   cuadradas,
+    'frenchUnas':  frenchUnas,
+};
+
 function Catalogo() {
 
     // Estado para guardar todos los servicios
@@ -62,7 +86,7 @@ function Catalogo() {
 
             {/* ── HEADER ── */}
             <div className="catalogo-header">
-                <h1>Nuestros Servicios </h1>
+                <h1>Nuestros Servicios 💅</h1>
                 <p>Descubre todos los tratamientos que tenemos para ti</p>
             </div>
 
@@ -102,14 +126,12 @@ function Catalogo() {
                         {serviciosFiltrados.map((servicio) => (
                             <div key={servicio._id} className="servicio-card">
 
-                                {/* Imagen del servicio */}
+                                {/* Imagen del servicio — usa imagen local según categoría */}
                                 <div className="servicio-imagen">
-                                    {servicio.imagenUrl ? (
-                                        <img src={servicio.imagenUrl} alt={servicio.nombreServicio} />
-                                    ) : (
-                                        
-                                        <div className="servicio-imagen-placeholder">💅</div>
-                                    )}
+                                    <img
+                                        src={imagenesCategorias[servicio.categoria] || manicura}
+                                        alt={servicio.nombreServicio}
+                                    />
                                     {/* Badge de categoría */}
                                     <span className="servicio-categoria">{servicio.categoria}</span>
                                 </div>
