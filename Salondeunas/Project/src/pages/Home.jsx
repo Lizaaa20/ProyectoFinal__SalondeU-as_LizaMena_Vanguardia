@@ -2,18 +2,20 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
 
-// Importar las imágenes del slider
-import slide1 from '../assets/slide1.jpg';
-import slide2 from '../assets/slide2.jpg';
-import slide3 from '../assets/slide3.jpg';
-import slide4 from '../assets/slide3.jpg';
+/// Importar imágenes del slider
+import Banner1 from '../assets/Banner1.jpg';
+import Banner2 from '../assets/Banner2.jpg';
+import Banner3 from '../assets/Banner3.jpg';
+import Banner4 from '../assets/Banner4.jpg';
 
-// Luego úsalas en el array
+
+
+// Array del slider
 const sliderImagenes = [
-    { id: 1, src: slide1, alt: 'Slide 1' },
-    { id: 2, src: slide2, alt: 'Slide 2' },
-    { id: 3, src: slide3, alt: 'Slide 3' },
-     {id: 4, src: slide4, alt: 'Slide 4' },
+    { id: 1, src: Banner1, alt: 'Slide 1' },
+    { id: 2, src: Banner2, alt: 'Slide 2' },
+    { id: 3, src: Banner3, alt: 'Slide 3' },
+    { id: 4, src: Banner4, alt: 'Slide 4' },
 ];
 
 // ── Imágenes de la galería
