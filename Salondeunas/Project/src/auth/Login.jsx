@@ -65,6 +65,10 @@ function Login() {
             {/* Tarjeta del formulario */}
             <div className="auth-card">
 
+               <Link to="/" className="navbar-logo">
+               <img src="/src/assets/page_logo.png" alt="Angel Nails" className="navbar-logo-img" /></Link>
+
+
                 {/* Logo / título */}
                 <div className="auth-header">
                     <h2>Bienvenida a Angel Nails</h2>
