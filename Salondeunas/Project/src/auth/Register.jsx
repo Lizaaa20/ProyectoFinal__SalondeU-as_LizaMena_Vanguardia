@@ -80,7 +80,7 @@ function Register() {
 
                 {/* Título */}
                 <div className="auth-header">
-                    <h2>Crear Cuenta 💅</h2>
+                    <h2>Crear Cuenta </h2>
                     <p>Regístrate para reservar tu cita en línea</p>
                 </div>
 

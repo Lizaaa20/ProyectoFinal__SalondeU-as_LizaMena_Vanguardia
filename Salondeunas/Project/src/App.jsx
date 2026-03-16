@@ -1,32 +1,36 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
 import Login from './auth/Login';
 import Register from './auth/Register';
-import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-// Importar componentes
-import Navbar from './components/Navbar';
+// Componente que decide si mostrar el Navbar
+function Layout() {
+    const location = useLocation();
 
-// Importar páginas
-import Home from './pages/Home';
+    // Rutas donde NO se muestra el Navbar
+    const sinNavbar = ['/login', '/register'];
+    const mostrarNavbar = !sinNavbar.includes(location.pathname);
 
-
-
-function App() {
     return (
-        // BrowserRouter habilita el sistema de rutas
-        <BrowserRouter>
+        <>
+            {/* Solo muestra el Navbar si la ruta no está en la lista */}
+            {mostrarNavbar && <Navbar />}
 
-            {/* Navbar visible en todas las páginas */}
-            <Navbar />
-            {/* Rutas de la aplicación */}
             <Routes>
-                {/* Página de inicio */}
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
             </Routes>
+        </>
+    );
+}
 
+function App() {
+    return (
+        <BrowserRouter>
+            <Layout />
         </BrowserRouter>
     );
 }
