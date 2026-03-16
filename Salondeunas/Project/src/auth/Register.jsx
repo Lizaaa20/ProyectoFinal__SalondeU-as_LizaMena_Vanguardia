@@ -91,7 +91,8 @@ function Register() {
                 {exito && <div className="auth-exito">{exito}</div>}
 
                 {/* Formulario de registro */}
-                <form onSubmit={handleSubmit}>
+                
+                <form onSubmit={handleSubmit} autoComplete="off">
 
                     {/* Fila nombre y apellido */}
                     <div className="form-row">
@@ -123,12 +124,13 @@ function Register() {
                     <div className="form-group">
                         <label>Correo electrónico</label>
                         <input
-                            type="email"
-                            name="correo"
-                            placeholder="ejemplo@correo.com"
-                            value={form.correo}
-                            onChange={handleChange}
-                            required
+                         type="email"
+                         name="correo"
+                         placeholder="ejemplo@correo.com"
+                         value={form.correo}
+                         onChange={handleChange}
+                         autoComplete="new-password"
+                          required
                         />
                     </div>
 
@@ -141,6 +143,7 @@ function Register() {
                             placeholder="+00 0000 0000"
                             value={form.telefono}
                             onChange={handleChange}
+                            autoComplete="new-password"
                         />
                     </div>
 
