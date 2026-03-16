@@ -19,7 +19,6 @@ function App() {
 
             {/* Navbar visible en todas las páginas */}
             <Navbar />
-
             {/* Rutas de la aplicación */}
             <Routes>
                 {/* Página de inicio */}
