@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
+
+    // Estado para mostrar/ocultar el menú del perfil
+    const [menuAbierto, setMenuAbierto] = useState(false);
 
     // Obtener el usuario guardado en localStorage
     const usuario = JSON.parse(localStorage.getItem('usuario'));
@@ -13,6 +17,7 @@ function Navbar() {
     function cerrarSesion() {
         localStorage.removeItem('token');
         localStorage.removeItem('usuario');
+        setMenuAbierto(false);
         navigate('/login');
     }
 
@@ -36,18 +41,25 @@ function Navbar() {
                 {/* Si hay usuario muestra su nombre, si no muestra botón login */}
                 {usuario ? (
                     <div className="navbar-perfil">
-                        {/* Nombre del usuario */}
-                        <span className="perfil-nombre">👤 {usuario.nombre}</span>
-                        {/* Menú desplegable */}
-                        <div className="perfil-menu">
-                            <Link to="/perfil">Mi perfil</Link>
-                            <Link to="/mis-reservas">Mis reservas</Link>
-                            {/* Si es admin muestra link al panel */}
-                            {usuario.rol === 'admin' && (
-                                <Link to="/admin">Panel Admin</Link>
-                            )}
-                            <button onClick={cerrarSesion}>Cerrar sesión</button>
-                        </div>
+                        {/* Clic para abrir/cerrar el menú */}
+                        <span
+                            className="perfil-nombre"
+                            onClick={() => setMenuAbierto(!menuAbierto)}
+                        >
+                            👤 {usuario.nombre}
+                        </span>
+
+                        {/* Menú desplegable — se muestra solo si menuAbierto es true */}
+                        {menuAbierto && (
+                            <div className="perfil-menu">
+                                <Link to="/perfil" onClick={() => setMenuAbierto(false)}>Mi perfil</Link>
+                                <Link to="/mis-reservas" onClick={() => setMenuAbierto(false)}>Mis reservas</Link>
+                                {usuario.rol === 'admin' && (
+                                    <Link to="/admin" onClick={() => setMenuAbierto(false)}>Panel Admin</Link>
+                                )}
+                                <button onClick={cerrarSesion}>Cerrar sesión</button>
+                            </div>
+                        )}
                     </div>
                 ) : (
                     <Link to="/login" className="navbar-login">
