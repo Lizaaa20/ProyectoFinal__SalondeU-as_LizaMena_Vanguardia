@@ -1,16 +1,31 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
+
+    // Obtener el usuario guardado en localStorage
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+
+    // Hook para redirigir
+    const navigate = useNavigate();
+
+    // Cerrar sesión
+    function cerrarSesion() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('usuario');
+        navigate('/login');
+    }
+
     return (
-        // Barra de navegación principal
         <nav className="navbar">
             <div className="navbar-container">
 
-               <Link to="/" className="navbar-logo">
-               <img src="/src/assets/page_logo.png" alt="Angel Nails" className="navbar-logo-img" /></Link>
+                {/* Logo */}
+                <Link to="/" className="navbar-logo">
+                    <img src="/src/assets/page_logo.png" alt="Angel Nails" className="navbar-logo-img" />
+                </Link>
 
-                {/* Links de navegación */}
+                {/* Links */}
                 <ul className="navbar-links">
                     <li><Link to="/">Inicio</Link></li>
                     <li><Link to="/servicios">Servicios</Link></li>
@@ -18,10 +33,27 @@ function Navbar() {
                     <li><Link to="/quienes-somos">Quiénes somos</Link></li>
                 </ul>
 
-                {/* Botón iniciar sesión */}
-                <Link to="/login" className="navbar-login">
-                    Iniciar sesión
-                </Link>
+                {/* Si hay usuario muestra su nombre, si no muestra botón login */}
+                {usuario ? (
+                    <div className="navbar-perfil">
+                        {/* Nombre del usuario */}
+                        <span className="perfil-nombre">👤 {usuario.nombre}</span>
+                        {/* Menú desplegable */}
+                        <div className="perfil-menu">
+                            <Link to="/perfil">Mi perfil</Link>
+                            <Link to="/mis-reservas">Mis reservas</Link>
+                            {/* Si es admin muestra link al panel */}
+                            {usuario.rol === 'admin' && (
+                                <Link to="/admin">Panel Admin</Link>
+                            )}
+                            <button onClick={cerrarSesion}>Cerrar sesión</button>
+                        </div>
+                    </div>
+                ) : (
+                    <Link to="/login" className="navbar-login">
+                        Iniciar sesión
+                    </Link>
+                )}
 
             </div>
         </nav>
