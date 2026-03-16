@@ -67,7 +67,7 @@ function Login() {
 
                 {/* Logo / título */}
                 <div className="auth-header">
-                    <h2>Bienvenida 💅</h2>
+                    <h2>Bienvenida a Angel Nails</h2>
                     <p>Inicia sesión para reservar tu cita</p>
                 </div>
 
