@@ -151,9 +151,7 @@ function Home() {
                     {galeriaFotos.map((foto) => (
                         <div key={foto.id} className="galeria-item">
                             <img src={foto.src} alt={foto.alt} />
-                            <div className="galeria-overlay">
-                                <span>Ver diseño</span>
-                            </div>
+                            
                         </div>
                     ))}
                 </div>
