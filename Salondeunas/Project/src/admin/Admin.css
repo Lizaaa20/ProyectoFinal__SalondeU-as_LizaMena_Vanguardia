@@ -524,3 +524,47 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* ── FILTROS DE RESERVAS ── */
+.reservas-filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filtro-estado-btn {
+    padding: 8px 16px;
+    border: 2px solid #e0a0b4;
+    border-radius: 20px;
+    background: transparent;
+    color: #c9396b;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filtro-estado-btn:hover {
+    background: #fce4ec;
+}
+
+.filtro-estado-activo {
+    background: #c9396b !important;
+    color: #ffffff !important;
+    border-color: #c9396b !important;
+}
+
+.filtro-count {
+    background: rgba(255,255,255,0.3);
+    padding: 1px 7px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+}
+
+.filtro-estado-activo .filtro-count {
+    background: rgba(255,255,255,0.25);
+}
