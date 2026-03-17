@@ -80,7 +80,7 @@ function Dashboard() {
 
                 {/* Logo */}
                 <div className="sidebar-logo">
-                    <span>💅 Angel Nails</span>
+                    <span>Angel Nails</span>
                     <small>Panel Admin</small>
                 </div>
 
@@ -116,7 +116,7 @@ function Dashboard() {
                 {/* Header del dashboard */}
                 <div className="admin-topbar">
                     <h1>Dashboard</h1>
-                    <span>Bienvenida, {usuario?.nombre} 👋</span>
+                    <span>Bienvenida, {usuario?.nombre}</span>
                 </div>
 
                 {/* Tarjetas de estadísticas */}
@@ -124,7 +124,7 @@ function Dashboard() {
 
                     {/* Total reservas */}
                     <div className="stat-card">
-                        <div className="stat-icono">📅</div>
+                        <div className="stat-icono"></div>
                         <div className="stat-info">
                             <h3>{loading ? '...' : stats.totalReservas}</h3>
                             <p>Total Reservas</p>
@@ -133,7 +133,7 @@ function Dashboard() {
 
                     {/* Total servicios */}
                     <div className="stat-card">
-                        <div className="stat-icono">💅</div>
+                        <div className="stat-icono"></div>
                         <div className="stat-info">
                             <h3>{loading ? '...' : stats.totalServicios}</h3>
                             <p>Servicios</p>
@@ -142,7 +142,7 @@ function Dashboard() {
 
                     {/* Total diseños */}
                     <div className="stat-card">
-                        <div className="stat-icono">🎨</div>
+                        <div className="stat-icono"></div>
                         <div className="stat-info">
                             <h3>{loading ? '...' : stats.totalDisenos}</h3>
                             <p>Diseños Enviados</p>
@@ -151,7 +151,7 @@ function Dashboard() {
 
                     {/* Accesos rápidos */}
                     <div className="stat-card stat-card-pink">
-                        <div className="stat-icono">⭐</div>
+                        <div className="stat-icono"></div>
                         <div className="stat-info">
                             <h3>Angel Nails</h3>
                             <p>3 Sucursales</p>
@@ -215,19 +215,19 @@ function Dashboard() {
                     <h2>Accesos Rápidos</h2>
                     <div className="accesos-grid">
                         <Link to="/admin/reservas" className="acceso-card">
-                            <span>📅</span>
+                            <span></span>
                             <p>Gestionar Reservas</p>
                         </Link>
                         <Link to="/admin/disenios" className="acceso-card">
-                            <span>🎨</span>
+                            <span></span>
                             <p>Ver Diseños</p>
                         </Link>
                         <Link to="/admin/servicios" className="acceso-card">
-                            <span>💅</span>
+                            <span></span>
                             <p>Gestionar Servicios</p>
                         </Link>
                         <Link to="/admin/sucursales" className="acceso-card">
-                            <span>🏪</span>
+                            <span></span>
                             <p>Gestionar Sucursales</p>
                         </Link>
                     </div>
