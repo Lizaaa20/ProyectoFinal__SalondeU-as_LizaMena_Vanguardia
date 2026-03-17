@@ -39,6 +39,7 @@ function Layout() {
                 <Route path="/admin" element={<Dashboard />} />
                 <Route path="/login-admin" element={<LoginAdmin />} />
                 <Route path="/admin/reservas" element={<AdminReservas />} />
+                <Route path="/admin/disenios" element={<AdminDisenios />} />
 
             </Routes>
         </>
