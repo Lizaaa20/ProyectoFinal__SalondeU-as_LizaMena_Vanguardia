@@ -58,7 +58,7 @@ function Sucursales() {
 
             {/* ── HEADER ── */}
             <div className="sucursales-header">
-                <h1>Nuestras Sucursales 🏪</h1>
+                <h1>Nuestras Sucursales</h1>
                 <p>Encuéntranos en diferentes puntos de la ciudad</p>
             </div>
 
