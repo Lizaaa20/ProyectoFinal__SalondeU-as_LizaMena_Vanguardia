@@ -1,0 +1,265 @@
+/* ══════════════════════════════
+   RESERVAS
+══════════════════════════════ */
+
+.reservas-page {
+    min-height: 100vh;
+    background-color: #fdf6f8;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── HEADER ── */
+.reservas-header {
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    text-align: center;
+    padding: 50px 20px 40px;
+}
+
+.reservas-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.reservas-header p {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* ── CONTENIDO — dos columnas ── */
+.reservas-contenido {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* ── COLUMNA ── */
+.reservas-columna h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+/* ── CALENDARIO ── */
+.calendario-custom {
+    width: 100% !important;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(201, 57, 107, 0.08) !important;
+    font-family: 'Segoe UI', sans-serif !important;
+    padding: 12px !important;
+    background: #ffffff !important;
+}
+
+/* Botones de navegación del calendario */
+.react-calendar__navigation button {
+    color: #c9396b !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+}
+
+.react-calendar__navigation button:hover {
+    background: #fce4ec !important;
+    border-radius: 8px !important;
+}
+
+/* Días del mes */
+.react-calendar__tile {
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+    padding: 10px 6px !important;
+}
+
+/* Día seleccionado */
+.react-calendar__tile--active {
+    background: #c9396b !important;
+    color: #ffffff !important;
+}
+
+.react-calendar__tile--active:hover {
+    background: #a02555 !important;
+}
+
+/* Día de hoy */
+.react-calendar__tile--now {
+    background: #fce4ec !important;
+    color: #c9396b !important;
+    font-weight: 700 !important;
+}
+
+/* Días deshabilitados */
+.react-calendar__tile:disabled {
+    background: #f5f5f5 !important;
+    color: #ccc !important;
+    cursor: not-allowed !important;
+}
+
+/* ── FECHA SELECCIONADA ── */
+.fecha-seleccionada {
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: #fce4ec;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #c9396b;
+    font-weight: 600;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+/* ── HORARIOS ── */
+.horarios-titulo {
+    margin-top: 24px !important;
+}
+
+/* Grid de botones de hora */
+.horarios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+/* Botón de hora */
+.horario-btn {
+    padding: 10px 6px;
+    border: 2px solid #e0a0b4;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #c9396b;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.horario-btn:hover {
+    background: #fce4ec;
+}
+
+/* Hora seleccionada */
+.horario-activo {
+    background: #c9396b !important;
+    color: #ffffff !important;
+    border-color: #c9396b !important;
+}
+
+/* ── FORMULARIO ── */
+.reservas-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Grupo de campo */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.88rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Select */
+.form-group select {
+    padding: 11px 14px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    outline: none;
+    color: #333;
+    background: #ffffff;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    border-color: #c9396b;
+    box-shadow: 0 0 0 3px rgba(201, 57, 107, 0.1);
+}
+
+/* ── RESUMEN ── */
+.reserva-resumen {
+    background: #fdf6f8;
+    border: 1.5px solid #f0d4dd;
+    border-radius: 10px;
+    padding: 16px 20px;
+}
+
+.reserva-resumen h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #c9396b;
+    margin-bottom: 10px;
+}
+
+.reserva-resumen p {
+    font-size: 0.88rem;
+    color: #555;
+    margin-bottom: 6px;
+    text-transform: capitalize;
+}
+
+/* ── BOTÓN CONFIRMAR ── */
+.btn-confirmar {
+    padding: 14px;
+    background: #c9396b;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-confirmar:hover {
+    background: #a02555;
+    transform: translateY(-1px);
+}
+
+.btn-confirmar:disabled {
+    background: #e0a0b4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ── MENSAJES ── */
+.reservas-error {
+    background: #fce4ec;
+    color: #c9396b;
+    border: 1px solid #f8bbd0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+.reservas-exito {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    text-align: center;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .reservas-contenido {
+        grid-template-columns: 1fr;
+    }
+    .horarios-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
