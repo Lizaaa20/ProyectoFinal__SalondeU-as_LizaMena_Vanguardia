@@ -27,6 +27,8 @@ function Layout() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/servicios" element={<Catalogo />} />
                 <Route path="/sucursales" element={<Sucursales />} />
+                <Route path="/reservas" element={<Reservas />} />
+
             </Routes>
         </>
     );

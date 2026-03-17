@@ -124,7 +124,7 @@ function Reservas() {
 
             {/* ── HEADER ── */}
             <div className="reservas-header">
-                <h1>Reservar Cita 📅</h1>
+                <h1>Reservar tu cita </h1>
                 <p>Selecciona tu fecha, hora y sucursal preferida</p>
             </div>
 
@@ -146,7 +146,7 @@ function Reservas() {
 
                     {/* Fecha seleccionada */}
                     <div className="fecha-seleccionada">
-                        📅 {fecha.toLocaleDateString('es-ES', {
+                         {fecha.toLocaleDateString('es-ES', {
                             weekday: 'long',
                             year: 'numeric',
                             month: 'long',
@@ -217,10 +217,10 @@ function Reservas() {
                         {/* Resumen de la reserva */}
                         <div className="reserva-resumen">
                             <h4>Resumen de tu cita</h4>
-                            <p>📅 {fecha.toLocaleDateString('es-ES')}</p>
-                            <p>🕐 {hora || 'Sin hora seleccionada'}</p>
-                            <p>💅 {servicios.find(s => s._id === servicioId)?.nombreServicio || 'Sin servicio'}</p>
-                            <p>🏪 {sucursales.find(s => s._id === sucursalId)?.nombre || 'Sin sucursal'}</p>
+                            <p> {fecha.toLocaleDateString('es-ES')}</p>
+                            <p> {hora || 'Sin hora seleccionada'}</p>
+                            <p> {servicios.find(s => s._id === servicioId)?.nombreServicio || 'Sin servicio'}</p>
+                            <p> {sucursales.find(s => s._id === sucursalId)?.nombre || 'Sin sucursal'}</p>
                         </div>
 
                         {/* Botón confirmar */}
