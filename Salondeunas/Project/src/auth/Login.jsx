@@ -59,6 +59,8 @@ function Login() {
     return (
         <div className="auth-page">
 
+        
+
             {/* Fondo decorativo */}
             <div className="auth-bg" />
 
@@ -68,7 +70,7 @@ function Login() {
                <Link to="/" className="navbar-logo">
                <img src="/src/assets/page_logo.png" alt="Angel Nails" className="navbar-logo-img" /></Link>
 
-
+               
                 {/* Logo / título */}
                 <div className="auth-header">
                     <h2>Bienvenida a Angel Nails</h2>
@@ -110,6 +112,16 @@ function Login() {
                             required
                         />
                     </div>
+
+                    {/* Divider */}
+                    <div className="auth-divider">
+                    <span>¿Eres administrador?</span>
+                    </div>
+
+                   {/* Botón acceso admin */}
+                  <Link to="/login-admin" className="btn-auth-admin-link">
+                  Acceso Administrador
+                </Link>
 
                     {/* Botón iniciar sesión */}
                     <button type="submit" className="btn-auth" disabled={loading}>

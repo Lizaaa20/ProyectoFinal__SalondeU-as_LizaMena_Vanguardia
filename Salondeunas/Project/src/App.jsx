@@ -31,6 +31,7 @@ function Layout() {
                 <Route path="/sucursales" element={<Sucursales />} />
                 <Route path="/reservas" element={<Reservas />} />
                 <Route path="/quienes-somos" element={<QuienesSomos />} />
+                <Route path="/admin" element={<Dashboard />} />
 
             </Routes>
         </>
