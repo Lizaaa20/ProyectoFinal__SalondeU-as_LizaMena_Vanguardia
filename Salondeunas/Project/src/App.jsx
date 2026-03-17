@@ -7,6 +7,7 @@ import Register from './auth/Register';
 import Catalogo from './catalogo/Catalogo';
 import Sucursales from './sucursales/Sucursales';
 import Reservas from './reservas/Reservas';
+import QuienesSomos from './quienesSomos/QuienesSomos';
 
 // Componente que decide si mostrar el Navbar
 function Layout() {
@@ -28,6 +29,7 @@ function Layout() {
                 <Route path="/servicios" element={<Catalogo />} />
                 <Route path="/sucursales" element={<Sucursales />} />
                 <Route path="/reservas" element={<Reservas />} />
+                <Route path="/quienes-somos" element={<QuienesSomos />} />
 
             </Routes>
         </>
