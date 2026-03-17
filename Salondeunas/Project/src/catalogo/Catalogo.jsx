@@ -3,28 +3,33 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Catalogo.css';
 
-// Todos deben tener ../../assets/
-import esmaltado   from '../assets/Esmaltadosemipermanente.jpg';
-import frenchUnas  from '../assets/frenchuñas.png';
-import limpieza    from '../assets/limpiezauña.jpg';
-import manicura    from '../assets/manicurabasica.jpg';
-import acrilicas   from '../assets/uñasacrilicas.jpg';
-import almendradas from '../assets/uñasalmendradas.jpg';
-import cuadradas   from '../assets/uñascuadradas.png';
-import gel         from '../assets/uñasgel.jpg';
-import nailart     from '../assets/Nailart.jpg';
 
-// Mapa de categoría → imagen local
-const imagenesCategorias = {
-    'Manicure':    manicura,
-    'Pedicure':    limpieza,
-    'Acrilico':    acrilicas,
-    'NailArt':     nailart,
-    'Gel':         gel,
-    'Esmaltado':   esmaltado,
-    'Almendradas': almendradas,
-    'Cuadradas':   cuadradas,
-    'frenchUnas':  frenchUnas,
+import esmaltado       from '../assets/Esmaltadosemipermanente.jpg';
+import frenchUnas      from '../assets/frenchuñas.png';
+import limpieza        from '../assets/limpiezauña.jpg';
+import limpiezaPedicure from '../assets/limpiezapaticure.jpg';
+import manicura        from '../assets/manicurabasica.jpg';
+import acrilicas       from '../assets/uñasacrilicas.jpg';
+import almendradas     from '../assets/uñasalmendradas.jpg';
+import cuadradas       from '../assets/uñascuadradas.png';
+import gel             from '../assets/uñasgel.jpg';
+import nailart         from '../assets/Nailart.jpg';
+import pedicura        from '../assets/pedicura.jpg';
+
+// categoría 
+// Mapa de _id → imagen específica
+const imagenesServicios = {
+    '69ae610f387a6dd265bfe426': manicura,        // Manicure básico
+    '69ae6154387a6dd265bfe428': pedicura,         // Pedicure Clásico
+    '69ae61ae387a6dd265bfe42a': acrilicas,        // Uñas acrílicas
+    '69ae61dc387a6dd265bfe42c': gel,              // Uñas en Gel
+    '69b12562625a1528c9b7b008': nailart,          // Nail Art Personalizado
+    '69b7d0dc2ac293e54ce37010': frenchUnas,       // French Nails
+    '69b7d0f72ac293e54ce37012': esmaltado,        // Esmaltado Semipermanente
+    '69b8939a65910a837224912d': limpieza,         // Limpieza Manos
+    '69b8943965910a837224912f': cuadradas,        // Uñas Cuadradas
+    '69b8958565910a8372249132': almendradas,      // Uñas Almendradas
+    '69b8a13a65910a8372249154': limpiezaPedicure, // Limpieza Pies
 };
 
 function Catalogo() {
@@ -86,7 +91,7 @@ function Catalogo() {
 
             {/* ── HEADER ── */}
             <div className="catalogo-header">
-                <h1>Nuestros Servicios 💅</h1>
+                <h1>Nuestros Servicios</h1>
                 <p>Descubre todos los tratamientos que tenemos para ti</p>
             </div>
 
@@ -129,7 +134,7 @@ function Catalogo() {
                                 {/* Imagen del servicio — usa imagen local según categoría */}
                                 <div className="servicio-imagen">
                                     <img
-                                        src={imagenesCategorias[servicio.categoria] || manicura}
+                                        src={imagenesServicios[servicio._id] || manicura}
                                         alt={servicio.nombreServicio}
                                     />
                                     {/* Badge de categoría */}
