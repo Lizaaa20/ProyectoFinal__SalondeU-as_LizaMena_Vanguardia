@@ -13,6 +13,9 @@ function Navbar() {
     // Hook para redirigir
     const navigate = useNavigate();
 
+
+    const sinNavbar = ['/login', '/register', '/admin'];
+
     // Cerrar sesión
     function cerrarSesion() {
         localStorage.removeItem('token');
