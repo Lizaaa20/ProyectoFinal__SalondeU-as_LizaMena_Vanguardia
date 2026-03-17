@@ -8,6 +8,7 @@ import Catalogo from './catalogo/Catalogo';
 import Sucursales from './sucursales/Sucursales';
 import Reservas from './reservas/Reservas';
 import QuienesSomos from './pages/Quienessomos';
+import Dashboard from './admin/Dashboard';
 
 // Componente que decide si mostrar el Navbar
 function Layout() {
