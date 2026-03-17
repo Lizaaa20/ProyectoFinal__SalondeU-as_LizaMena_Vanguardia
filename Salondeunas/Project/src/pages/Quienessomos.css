@@ -1,0 +1,316 @@
+/* ══════════════════════════════
+   QUIÉNES SOMOS
+══════════════════════════════ */
+
+.quienes-page {
+    min-height: 100vh;
+    background-color: #fdf6f8;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── HEADER ── */
+.quienes-header {
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    text-align: center;
+    padding: 50px 20px 40px;
+}
+
+.quienes-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.quienes-header p {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* ══════════════════════════════
+   MISIÓN Y VISIÓN
+══════════════════════════════ */
+.mision-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Tarjeta de misión/visión */
+.mv-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 28px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(201, 57, 107, 0.08);
+    transition: transform 0.3s ease;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.mv-card:hover {
+    transform: translateY(-4px);
+}
+
+.mv-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+/* Ícono */
+.mv-icono {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+/* Título */
+.mv-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #c9396b;
+    margin-bottom: 14px;
+}
+
+/* Texto */
+.mv-card p {
+    font-size: 0.92rem;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* ══════════════════════════════
+   VALORES
+══════════════════════════════ */
+.valores-seccion {
+    background: #fce4ec;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.valores-seccion h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 36px;
+}
+
+/* Grid de valores */
+.valores-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Tarjeta de valor */
+.valor-card {
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(201, 57, 107, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease both;
+}
+
+.valor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(201, 57, 107, 0.12);
+}
+
+/* Animación escalonada */
+.valor-card:nth-child(1) { animation-delay: 0.1s; }
+.valor-card:nth-child(2) { animation-delay: 0.2s; }
+.valor-card:nth-child(3) { animation-delay: 0.3s; }
+.valor-card:nth-child(4) { animation-delay: 0.4s; }
+.valor-card:nth-child(5) { animation-delay: 0.5s; }
+.valor-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Ícono del valor */
+.valor-icono {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.valor-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #c9396b;
+    margin-bottom: 8px;
+}
+
+.valor-card p {
+    font-size: 0.86rem;
+    color: #777;
+    line-height: 1.6;
+}
+
+/* ══════════════════════════════
+   EQUIPO
+══════════════════════════════ */
+.equipo-seccion {
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.equipo-seccion h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.equipo-subtitulo {
+    font-size: 0.95rem;
+    color: #999;
+    margin-bottom: 40px;
+}
+
+/* Grid del equipo */
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* Tarjeta del miembro */
+.miembro-card {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(201, 57, 107, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.5s ease both;
+}
+
+.miembro-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(201, 57, 107, 0.15);
+}
+
+/* Animación escalonada */
+.miembro-card:nth-child(1) { animation-delay: 0.1s; }
+.miembro-card:nth-child(2) { animation-delay: 0.2s; }
+.miembro-card:nth-child(3) { animation-delay: 0.3s; }
+.miembro-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Foto del miembro */
+.miembro-foto {
+    height: 220px;
+    overflow: hidden;
+}
+
+.miembro-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.miembro-card:hover .miembro-foto img {
+    transform: scale(1.05);
+}
+
+/* Info del miembro */
+.miembro-info {
+    padding: 18px;
+    text-align: center;
+}
+
+.miembro-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+/* Cargo */
+.miembro-cargo {
+    display: inline-block;
+    font-size: 0.78rem;
+    color: #c9396b;
+    font-weight: 600;
+    background: #fce4ec;
+    padding: 3px 10px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+}
+
+.miembro-info p {
+    font-size: 0.82rem;
+    color: #888;
+    line-height: 1.5;
+}
+
+/* ══════════════════════════════
+   CTA FINAL
+══════════════════════════════ */
+.quienes-cta {
+    background: linear-gradient(135deg, #c9396b, #a02555);
+    text-align: center;
+    padding: 60px 20px;
+    color: #ffffff;
+}
+
+.quienes-cta h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.quienes-cta p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 28px;
+}
+
+/* Botón CTA */
+.btn-cta {
+    display: inline-block;
+    padding: 13px 36px;
+    background: #ffffff;
+    color: #c9396b;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    color: #c9396b;
+}
+
+/* ── ANIMACIÓN ── */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .valores-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .mision-vision {
+        grid-template-columns: 1fr;
+    }
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .valores-grid {
+        grid-template-columns: 1fr;
+    }
+}
