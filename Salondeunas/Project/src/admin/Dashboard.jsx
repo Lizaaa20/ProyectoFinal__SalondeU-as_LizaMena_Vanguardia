@@ -87,19 +87,19 @@ function Dashboard() {
                 {/* Links de navegación */}
                 <nav className="sidebar-nav">
                     <Link to="/admin" className="sidebar-link activo">
-                        📊 Dashboard
+                         Dashboard
                     </Link>
                     <Link to="/admin/reservas" className="sidebar-link">
-                        📅 Reservas
+                       Reservas
                     </Link>
                     <Link to="/admin/disenios" className="sidebar-link">
-                        🎨 Diseños
+                        Diseños
                     </Link>
                     <Link to="/admin/servicios" className="sidebar-link">
-                        💅 Servicios
+                         Servicios
                     </Link>
                     <Link to="/admin/sucursales" className="sidebar-link">
-                        🏪 Sucursales
+                         Sucursales
                     </Link>
                 </nav>
 
