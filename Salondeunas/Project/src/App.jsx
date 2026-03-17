@@ -10,6 +10,7 @@ import Reservas from './reservas/Reservas';
 import QuienesSomos from './pages/Quienessomos';
 import Dashboard from './admin/Dashboard';
 import LoginAdmin from './auth/LoginAdmin';
+import AdminReservas from './admin/Reservas';
 
 // Componente que decide si mostrar el Navbar
 function Layout() {
@@ -36,6 +37,7 @@ function Layout() {
                 <Route path="/quienes-somos" element={<QuienesSomos />} />
                 <Route path="/admin" element={<Dashboard />} />
                 <Route path="/login-admin" element={<LoginAdmin />} />
+                <Route path="/admin/reservas" element={<AdminReservas />} />
 
             </Routes>
         </>
