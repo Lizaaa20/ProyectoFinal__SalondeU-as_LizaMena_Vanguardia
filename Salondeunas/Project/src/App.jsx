@@ -20,8 +20,7 @@ function Layout() {
 
     // Rutas donde NO se muestra el Navbar
     
-    const sinNavbar = ['/login', '/register', '/login-admin', '/admin'];
-
+    const sinNavbar = ['/login', '/register', '/login-admin', '/admin', '/admin/reservas', '/admin/disenios', '/admin/servicios', '/admin/sucursales'];
     const mostrarNavbar = !sinNavbar.includes(location.pathname);
 
     return (
