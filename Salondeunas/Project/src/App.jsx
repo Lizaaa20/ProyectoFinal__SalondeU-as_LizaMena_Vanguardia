@@ -11,6 +11,7 @@ import QuienesSomos from './pages/Quienessomos';
 import Dashboard from './admin/Dashboard';
 import LoginAdmin from './auth/LoginAdmin';
 import AdminReservas from './admin/Reservas';
+import AdminDisenios from './admin/Disenios';
 
 // Componente que decide si mostrar el Navbar
 function Layout() {
