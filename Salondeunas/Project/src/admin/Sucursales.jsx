@@ -15,8 +15,14 @@ function AdminSucursales() {
         telefono:        '',
         horarioApertura: '',
         horarioCierre:   '',
-        activa:          true
+        activa:          true,
+        imagenUrl:       ''
     });
+
+    // Estado para el archivo de imagen seleccionado
+    const [imagenFile,    setImagenFile]    = useState(null);
+    const [imagenPreview, setImagenPreview] = useState('');
+    const [subiendoImg,   setSubiendoImg]   = useState(false);
 
     // Estado para saber si estamos editando
     const [editandoId, setEditandoId] = useState(null);
@@ -49,10 +55,50 @@ function AdminSucursales() {
         }
     }
 
-    // Manejar cambios en el formulario
+    // Manejar cambios en los campos de texto
     function handleChange(e) {
         const { name, value, type, checked } = e.target;
         setForm({ ...form, [name]: type === 'checkbox' ? checked : value });
+    }
+
+    // Manejar selección de imagen
+    function handleImagenChange(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // Guardar el archivo y mostrar preview
+        setImagenFile(file);
+        setImagenPreview(URL.createObjectURL(file));
+    }
+
+    // Subir imagen al servidor
+    async function subirImagen() {
+        if (!imagenFile) return null;
+
+        setSubiendoImg(true);
+        try {
+            const formData = new FormData();
+            formData.append('imagen', imagenFile);
+
+            const res = await axios.post(
+                'http://localhost:3000/api/sucursales/upload-imagen',
+                formData,
+                {
+                    headers: {
+                        authorization: token,
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }
+            );
+
+            return res.data.imagenUrl;
+
+        } catch (err) {
+            setError('Error al subir la imagen');
+            return null;
+        } finally {
+            setSubiendoImg(false);
+        }
     }
 
     // Limpiar formulario
@@ -63,8 +109,11 @@ function AdminSucursales() {
             telefono:        '',
             horarioApertura: '',
             horarioCierre:   '',
-            activa:          true
+            activa:          true,
+            imagenUrl:       ''
         });
+        setImagenFile(null);
+        setImagenPreview('');
         setEditandoId(null);
         setError('');
     }
@@ -83,8 +132,11 @@ function AdminSucursales() {
             telefono:        sucursal.telefono,
             horarioApertura: sucursal.horarioApertura,
             horarioCierre:   sucursal.horarioCierre,
-            activa:          sucursal.activa
+            activa:          sucursal.activa,
+            imagenUrl:       sucursal.imagenUrl || ''
         });
+        setImagenPreview(sucursal.imagenUrl || '');
+        setImagenFile(null);
         setEditandoId(sucursal._id);
         setMostrarForm(true);
     }
@@ -94,26 +146,33 @@ function AdminSucursales() {
         e.preventDefault();
         setError('');
 
+        // Si hay una imagen nueva, subirla primero
+        let imagenUrl = form.imagenUrl;
+        if (imagenFile) {
+            const urlSubida = await subirImagen();
+            if (!urlSubida) return;
+            imagenUrl = urlSubida;
+        }
+
         try {
+            const datosFinales = { ...form, imagenUrl };
+
             if (editandoId) {
-                // Actualizar sucursal existente
                 await axios.put(
                     `http://localhost:3000/api/sucursales/update/${editandoId}`,
-                    form,
+                    datosFinales,
                     { headers: { authorization: token } }
                 );
                 setMensaje('Sucursal actualizada correctamente');
             } else {
-                // Crear nueva sucursal
                 await axios.post(
                     'http://localhost:3000/api/sucursales/create',
-                    form,
+                    datosFinales,
                     { headers: { authorization: token } }
                 );
                 setMensaje('Sucursal creada correctamente');
             }
 
-            // Recargar sucursales y cerrar formulario
             fetchSucursales();
             limpiarForm();
             setMostrarForm(false);
@@ -133,12 +192,9 @@ function AdminSucursales() {
                 `http://localhost:3000/api/sucursales/delete/${id}`,
                 { headers: { authorization: token } }
             );
-
-            // Eliminar de la lista local
             setSucursales(prev => prev.filter(s => s._id !== id));
             setMensaje('Sucursal eliminada correctamente');
             setTimeout(() => setMensaje(''), 3000);
-
         } catch (err) {
             setError('Error al eliminar la sucursal');
         }
@@ -172,7 +228,6 @@ function AdminSucursales() {
             {/* ── CONTENIDO ── */}
             <main className="admin-main">
 
-                {/* Topbar */}
                 <div className="admin-topbar">
                     <h1>Gestión de Sucursales</h1>
                     <button className="btn-admin-primary" onClick={abrirCrear}>
@@ -191,96 +246,61 @@ function AdminSucursales() {
                         <div className="admin-form">
                             <h3>{editandoId ? '✏️ Editar Sucursal' : '+ Nueva Sucursal'}</h3>
                             <form onSubmit={handleSubmit}>
-                                <div className="form-grid">
 
-                                    {/* Nombre */}
+                                <div className="form-grid">
                                     <div className="form-group">
                                         <label>Nombre de la sucursal</label>
-                                        <input
-                                            type="text"
-                                            name="nombre"
-                                            placeholder="Ej: Sucursal Central"
-                                            value={form.nombre}
-                                            onChange={handleChange}
-                                            required
-                                        />
+                                        <input type="text" name="nombre" placeholder="Ej: Sucursal Central" value={form.nombre} onChange={handleChange} required />
                                     </div>
-
-                                    {/* Teléfono */}
                                     <div className="form-group">
                                         <label>Teléfono</label>
-                                        <input
-                                            type="text"
-                                            name="telefono"
-                                            placeholder="Ej: 88001234"
-                                            value={form.telefono}
-                                            onChange={handleChange}
-                                            required
-                                        />
+                                        <input type="text" name="telefono" placeholder="Ej: 88001234" value={form.telefono} onChange={handleChange} required />
                                     </div>
-
-                                    {/* Horario apertura */}
                                     <div className="form-group">
                                         <label>Horario apertura</label>
-                                        <input
-                                            type="time"
-                                            name="horarioApertura"
-                                            value={form.horarioApertura}
-                                            onChange={handleChange}
-                                            required
-                                        />
+                                        <input type="time" name="horarioApertura" value={form.horarioApertura} onChange={handleChange} required />
                                     </div>
-
-                                    {/* Horario cierre */}
                                     <div className="form-group">
                                         <label>Horario cierre</label>
-                                        <input
-                                            type="time"
-                                            name="horarioCierre"
-                                            value={form.horarioCierre}
-                                            onChange={handleChange}
-                                            required
-                                        />
+                                        <input type="time" name="horarioCierre" value={form.horarioCierre} onChange={handleChange} required />
                                     </div>
-
                                 </div>
 
-                                {/* Dirección */}
                                 <div className="form-group">
                                     <label>Dirección</label>
+                                    <input type="text" name="direccion" placeholder="Ej: Calle Principal #123, San Pedro Sula" value={form.direccion} onChange={handleChange} required />
+                                </div>
+
+                                {/* Subida de imagen */}
+                                <div className="form-group">
+                                    <label>Imagen de la sucursal</label>
                                     <input
-                                        type="text"
-                                        name="direccion"
-                                        placeholder="Ej: Calle Principal #123, San Pedro Sula"
-                                        value={form.direccion}
-                                        onChange={handleChange}
-                                        required
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleImagenChange}
+                                        className="input-file"
                                     />
+                                    {/* Preview de la imagen */}
+                                    {imagenPreview && (
+                                        <img
+                                            src={imagenPreview}
+                                            alt="Preview"
+                                            className="imagen-preview"
+                                        />
+                                    )}
                                 </div>
 
                                 {/* Activa */}
                                 <div className="form-group" style={{ flexDirection: 'row', alignItems: 'center', gap: '10px' }}>
-                                    <input
-                                        type="checkbox"
-                                        name="activa"
-                                        id="activa"
-                                        checked={form.activa}
-                                        onChange={handleChange}
-                                        style={{ width: 'auto' }}
-                                    />
+                                    <input type="checkbox" name="activa" id="activa" checked={form.activa} onChange={handleChange} style={{ width: 'auto' }} />
                                     <label htmlFor="activa" style={{ marginBottom: 0 }}>Sucursal activa</label>
                                 </div>
 
-                                {/* Botones */}
                                 <div style={{ display: 'flex', gap: '10px', marginTop: '8px' }}>
-                                    <button type="submit" className="btn-admin-primary">
-                                        {editandoId ? 'Actualizar' : 'Crear Sucursal'}
+                                    <button type="submit" className="btn-admin-primary" disabled={subiendoImg}>
+                                        {subiendoImg ? 'Subiendo imagen...' : editandoId ? 'Actualizar' : 'Crear Sucursal'}
                                     </button>
-                                    <button
-                                        type="button"
-                                        className="btn-admin-secondary"
-                                        onClick={() => { setMostrarForm(false); limpiarForm(); }}
-                                    >
+                                    <button type="button" className="btn-admin-secondary" onClick={() => { setMostrarForm(false); limpiarForm(); }}>
                                         Cancelar
                                     </button>
                                 </div>
@@ -293,6 +313,7 @@ function AdminSucursales() {
                         <table className="admin-tabla">
                             <thead>
                                 <tr>
+                                    <th>Imagen</th>
                                     <th>Nombre</th>
                                     <th>Dirección</th>
                                     <th>Teléfono</th>
@@ -303,12 +324,19 @@ function AdminSucursales() {
                             </thead>
                             <tbody>
                                 {loading ? (
-                                    <tr><td colSpan="6" className="tabla-loading">Cargando...</td></tr>
+                                    <tr><td colSpan="7" className="tabla-loading">Cargando...</td></tr>
                                 ) : sucursales.length === 0 ? (
-                                    <tr><td colSpan="6" className="tabla-vacia">No hay sucursales</td></tr>
+                                    <tr><td colSpan="7" className="tabla-vacia">No hay sucursales</td></tr>
                                 ) : (
                                     sucursales.map((s) => (
                                         <tr key={s._id}>
+                                            <td>
+                                                {s.imagenUrl ? (
+                                                    <img src={s.imagenUrl} alt={s.nombre} className="tabla-imagen" />
+                                                ) : (
+                                                    <div className="tabla-sin-imagen">🏪</div>
+                                                )}
+                                            </td>
                                             <td><strong>{s.nombre}</strong></td>
                                             <td>{s.direccion}</td>
                                             <td>{s.telefono}</td>
@@ -320,17 +348,10 @@ function AdminSucursales() {
                                             </td>
                                             <td>
                                                 <div style={{ display: 'flex', gap: '6px' }}>
-                                                    <button
-                                                        className="btn-admin-secondary"
-                                                        style={{ padding: '6px 12px', fontSize: '0.8rem' }}
-                                                        onClick={() => abrirEditar(s)}
-                                                    >
+                                                    <button className="btn-admin-secondary" style={{ padding: '6px 12px', fontSize: '0.8rem' }} onClick={() => abrirEditar(s)}>
                                                         ✏️ Editar
                                                     </button>
-                                                    <button
-                                                        className="btn-admin-danger"
-                                                        onClick={() => handleEliminar(s._id)}
-                                                    >
+                                                    <button className="btn-admin-danger" onClick={() => handleEliminar(s._id)}>
                                                         🗑 Eliminar
                                                     </button>
                                                 </div>
