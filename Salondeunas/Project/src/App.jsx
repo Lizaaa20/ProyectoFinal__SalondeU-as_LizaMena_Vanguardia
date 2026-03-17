@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import Catalogo from './catalogo/Catalogo';
+import Sucursales from './sucursales/Sucursales';
 
 // Componente que decide si mostrar el Navbar
 function Layout() {
@@ -24,6 +25,7 @@ function Layout() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/servicios" element={<Catalogo />} />
+                <Route path="/sucursales" element={<Sucursales />} />
             </Routes>
         </>
     );
