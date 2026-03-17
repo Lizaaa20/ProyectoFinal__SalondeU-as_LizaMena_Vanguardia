@@ -17,7 +17,7 @@ import nailart         from '../assets/Nailart.jpg';
 import pedicura        from '../assets/pedicura.jpg';
 
 // categoría 
-// Mapa de _id → imagen específica
+// Mapa de _id 
 const imagenesServicios = {
     '69ae610f387a6dd265bfe426': manicura,        // Manicure básico
     '69ae6154387a6dd265bfe428': pedicura,         // Pedicure Clásico
