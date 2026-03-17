@@ -3,6 +3,16 @@ const express = require('express');
 const router = express.Router();
 const SucursalController = require('../Controller/SucursalController');
 const { verificarToken, soloAdmin } = require('../Middlewares/authMiddleware');
+const upload = require('../Middlewares/upload');
+
+
+// Subir imagen de sucursal
+router.post('/upload-imagen', verificarToken, soloAdmin, upload.single('imagen'), (req, res) => {
+    if (!req.file) return res.status(400).json({ message: 'No se subió ninguna imagen' });
+    res.status(200).json({ 
+        imagenUrl: `http://localhost:3000/uploads/${req.file.filename}` 
+    });
+});
 
 // Rutas públicas — cualquiera puede ver las sucursales
 router.get('/', SucursalController.show);
