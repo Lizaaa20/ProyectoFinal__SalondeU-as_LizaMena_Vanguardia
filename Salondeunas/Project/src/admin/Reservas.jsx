@@ -78,11 +78,11 @@ function AdminReservas() {
                     <small>Panel Admin</small>
                 </div>
                 <nav className="sidebar-nav">
-                    <Link to="/admin" className="sidebar-link">📊 Dashboard</Link>
-                    <Link to="/admin/reservas" className="sidebar-link activo">📅 Reservas</Link>
-                    <Link to="/admin/disenios" className="sidebar-link">🎨 Diseños</Link>
-                    <Link to="/admin/servicios" className="sidebar-link">💅 Servicios</Link>
-                    <Link to="/admin/sucursales" className="sidebar-link">🏪 Sucursales</Link>
+                    <Link to="/admin" className="sidebar-link"> Dashboard</Link>
+                    <Link to="/admin/reservas" className="sidebar-link activo"> Reservas</Link>
+                    <Link to="/admin/disenios" className="sidebar-link"> Diseños</Link>
+                    <Link to="/admin/servicios" className="sidebar-link"> Servicios</Link>
+                    <Link to="/admin/sucursales" className="sidebar-link"> Sucursales</Link>
                 </nav>
                 <button className="sidebar-logout" onClick={() => {
                     localStorage.removeItem('token');
