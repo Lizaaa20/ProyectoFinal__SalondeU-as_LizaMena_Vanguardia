@@ -13,6 +13,8 @@ import LoginAdmin from './auth/LoginAdmin';
 import AdminReservas from './admin/Reservas';
 import AdminDisenios from './admin/Disenios';
 import AdminServicios from './admin/Servicios';
+import AdminSucursales from './admin/Sucursales';
+
 
 // Componente que decide si mostrar el Navbar
 function Layout() {
