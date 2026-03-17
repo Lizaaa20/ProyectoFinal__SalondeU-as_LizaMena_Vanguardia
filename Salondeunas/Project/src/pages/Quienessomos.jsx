@@ -54,14 +54,14 @@ function QuienesSomos() {
 
             {/* ── HEADER ── */}
             <div className="quienes-header">
-                <h1>Quiénes Somos 💅</h1>
+                <h1>Quiénes Somos </h1>
                 <p>Conoce el equipo detrás de Angel Nails</p>
             </div>
 
             {/* ── MISIÓN Y VISIÓN ── */}
             <section className="mision-vision">
                 <div className="mv-card">
-                    <div className="mv-icono">🎯</div>
+                    <div className="mv-icono"></div>
                     <h3>Nuestra Misión</h3>
                     <p>
                         Brindar a nuestras clientas una experiencia única de belleza y bienestar,
@@ -70,7 +70,7 @@ function QuienesSomos() {
                     </p>
                 </div>
                 <div className="mv-card">
-                    <div className="mv-icono">🌟</div>
+                    <div className="mv-icono"></div>
                     <h3>Nuestra Visión</h3>
                     <p>
                         Ser el salón de uñas líder en Honduras, reconocido por la excelencia
