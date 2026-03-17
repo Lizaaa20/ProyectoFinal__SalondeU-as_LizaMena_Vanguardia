@@ -126,11 +126,11 @@ function AdminDisenios() {
                     <small>Panel Admin</small>
                 </div>
                 <nav className="sidebar-nav">
-                    <Link to="/admin" className="sidebar-link">📊 Dashboard</Link>
-                    <Link to="/admin/reservas" className="sidebar-link">📅 Reservas</Link>
-                    <Link to="/admin/disenios" className="sidebar-link activo">🎨 Diseños</Link>
-                    <Link to="/admin/servicios" className="sidebar-link">💅 Servicios</Link>
-                    <Link to="/admin/sucursales" className="sidebar-link">🏪 Sucursales</Link>
+                    <Link to="/admin" className="sidebar-link"> Dashboard</Link>
+                    <Link to="/admin/reservas" className="sidebar-link"> Reservas</Link>
+                    <Link to="/admin/disenios" className="sidebar-link activo"> Diseños</Link>
+                    <Link to="/admin/servicios" className="sidebar-link"> Servicios</Link>
+                    <Link to="/admin/sucursales" className="sidebar-link"> Sucursales</Link>
                 </nav>
                 <button className="sidebar-logout" onClick={() => {
                     localStorage.removeItem('token');
@@ -209,13 +209,13 @@ function AdminDisenios() {
 
                                         {/* Fecha de envío */}
                                         <p className="disenio-fecha">
-                                            📅 {new Date(d.fechaEnvio).toLocaleDateString('es-ES')}
+                                             {new Date(d.fechaEnvio).toLocaleDateString('es-ES')}
                                         </p>
 
                                         {/* Cotización si ya existe */}
                                         {d.cotizacion > 0 && (
                                             <p className="disenio-monto">
-                                                💰 Cotización: L. {d.cotizacion}
+                                                 Cotización: L. {d.cotizacion}
                                             </p>
                                         )}
 
@@ -226,7 +226,7 @@ function AdminDisenios() {
                                                 style={{ width: '100%', marginTop: '10px' }}
                                                 onClick={() => abrirCotizacion(d)}
                                             >
-                                                💰 Generar Cotización
+                                                 Generar Cotización
                                             </button>
                                         )}
 
