@@ -7,6 +7,8 @@ function Navbar() {
     // Estado para mostrar/ocultar el menú del perfil
     const [menuAbierto, setMenuAbierto] = useState(false);
 
+    const sinNavbar = ['/login', '/register', '/admin', '/login-admin'];
+
     // Obtener el usuario guardado en localStorage
     const usuario = JSON.parse(localStorage.getItem('usuario'));
 
@@ -14,7 +16,7 @@ function Navbar() {
     const navigate = useNavigate();
 
 
-    const sinNavbar = ['/login', '/register', '/admin'];
+    
 
     // Cerrar sesión
     function cerrarSesion() {
