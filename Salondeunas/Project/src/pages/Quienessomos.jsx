@@ -10,7 +10,7 @@ import equipo3   from '../assets/pnequipo1.png';
 const equipo = [
     {
         id: 1,
-        nombre: 'Valentina Mena',
+        nombre: 'Samantha Alberto',
         cargo: 'Directora & Fundadora',
         descripcion: 'Apasionada por el arte de las uñas con más de 10 años de experiencia en el sector de la belleza.',
         imagen: directora
@@ -40,12 +40,12 @@ const equipo = [
 
 // Valores del salón
 const valores = [
-    { icono: '💅', titulo: 'Excelencia', descripcion: 'Brindamos el mejor servicio con técnicas de alta calidad en cada cita.' },
-    { icono: '❤️', titulo: 'Pasión', descripcion: 'Amamos lo que hacemos y eso se refleja en cada diseño que creamos.' },
-    { icono: '✨', titulo: 'Creatividad', descripcion: 'Innovamos constantemente para ofrecerte diseños únicos y personalizados.' },
-    { icono: '🤝', titulo: 'Confianza', descripcion: 'Construimos relaciones duraderas con nuestras clientas basadas en la honestidad.' },
-    { icono: '🌿', titulo: 'Cuidado', descripcion: 'Utilizamos productos de alta calidad que cuidan la salud de tus uñas.' },
-    { icono: '⭐', titulo: 'Profesionalismo', descripcion: 'Nuestro equipo está certificado y en constante capacitación.' },
+    { titulo: 'Excelencia', descripcion: 'Brindamos el mejor servicio con técnicas de alta calidad en cada cita.' },
+    { titulo: 'Pasión', descripcion: 'Amamos lo que hacemos y eso se refleja en cada diseño que creamos.' },
+    { titulo: 'Creatividad', descripcion: 'Innovamos constantemente para ofrecerte diseños únicos y personalizados.' },
+    { titulo: 'Confianza', descripcion: 'Construimos relaciones duraderas con nuestras clientas basadas en la honestidad.' },
+    { titulo: 'Cuidado', descripcion: 'Utilizamos productos de alta calidad que cuidan la salud de tus uñas.' },
+    { titulo: 'Profesionalismo', descripcion: 'Nuestro equipo está certificado y en constante capacitación.' },
 ];
 
 function QuienesSomos() {
