@@ -7,7 +7,7 @@ import Register from './auth/Register';
 import Catalogo from './catalogo/Catalogo';
 import Sucursales from './sucursales/Sucursales';
 import Reservas from './reservas/Reservas';
-import QuienesSomos from './quienesSomos/QuienesSomos';
+import QuienesSomos from './pages/Quienessomos';
 
 // Componente que decide si mostrar el Navbar
 function Layout() {
