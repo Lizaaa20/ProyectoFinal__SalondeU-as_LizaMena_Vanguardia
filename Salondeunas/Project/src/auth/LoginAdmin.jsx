@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import logo from '../../assets/page_logo.png';
+import logo from '../assets/page_logo.png';
 import './Auth.css';
 
 function LoginAdmin() {
