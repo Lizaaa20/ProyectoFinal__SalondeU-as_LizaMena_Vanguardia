@@ -3,13 +3,15 @@ const Sucursal = require('../Models/Sucursal');
 // Create - Crear nueva sucursal
 async function create(req, res) {
     try {
+        
         const sucursal = new Sucursal({
             nombre:          req.body.nombre,
-            direccion:       req.body.direccion,
-            telefono:        req.body.telefono,
-            horarioApertura: req.body.horarioApertura,
-            horarioCierre:   req.body.horarioCierre,
-            activa:          true
+    direccion:       req.body.direccion,
+    telefono:        req.body.telefono,
+    horarioApertura: req.body.horarioApertura,
+    horarioCierre:   req.body.horarioCierre,
+    activa:          true,
+
         });
 
         const data = await sucursal.save();
@@ -49,11 +51,12 @@ async function update(req, res) {
     try {
         const data = await Sucursal.findByIdAndUpdate(req.params.id, {
             nombre:          req.body.nombre,
-            direccion:       req.body.direccion,
-            telefono:        req.body.telefono,
-            horarioApertura: req.body.horarioApertura,
-            horarioCierre:   req.body.horarioCierre,
-            activa:          req.body.activa
+    direccion:       req.body.direccion,
+    telefono:        req.body.telefono,
+    horarioApertura: req.body.horarioApertura,
+    horarioCierre:   req.body.horarioCierre,
+    activa:          req.body.activa,
+    imagenUrl:       req.body.imagenUrl || ''  
         }, { new: true });
 
         if (!data) return res.status(404).json({ message: 'Sucursal no encontrada' });

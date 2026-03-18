@@ -7,11 +7,6 @@ require('./database');
 
 // Habilitar CORS para permitir peticiones desde React
 app.use(cors());
-app.use(express.json());
-
-app.use(express.json()); 
-
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //login
 app.use('/api/auth', require('./routers/auth'));

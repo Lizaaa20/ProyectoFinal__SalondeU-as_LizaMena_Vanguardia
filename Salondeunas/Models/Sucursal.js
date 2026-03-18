@@ -7,7 +7,8 @@ const sucursalSchema = new Schema({
     telefono:        { type: String },
     horarioApertura: { type: String },
     horarioCierre:   { type: String },
-    activa:          { type: Boolean }
+    activa:          { type: Boolean },
+    
 }, { versionKey: false });
 
 const Sucursal = mongoose.model('sucursal', sucursalSchema);

@@ -9,7 +9,7 @@ async function create(req, res) {
             precioBase:     req.body.precioBase,
             duracionMin:    req.body.duracionMin,
             categoria:      req.body.categoria,
-            imagenUrl:      req.body.imagenUrl,
+            
             activo:         true
         });
 
@@ -66,7 +66,7 @@ async function update(req, res) {
             precioBase:     req.body.precioBase,
             duracionMin:    req.body.duracionMin,
             categoria:      req.body.categoria,
-            imagenUrl:      req.body.imagenUrl,
+            
             activo:         req.body.activo
         }, { new: true });
 

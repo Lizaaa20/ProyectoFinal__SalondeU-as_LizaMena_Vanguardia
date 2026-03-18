@@ -9,7 +9,7 @@ import imgSucursal3 from '../assets/TerceraSucursal.jpg';
 
 // Mapa de nombre de sucursal → imagen y link de Google Maps
 const sucursalData = {
-    'Sucursal Central': {
+    'Sucurcal Central': {
         imagen: imgSucursal1,
         mapa: 'https://google.com/maps/dir//Vanity+Nail+Studio,+Res,+calle+principal+%23+29,+21102+San+Pedro+Sula,+Cortés/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x8f665b916b5a4d4f:0x19f2a8289c7e5240?sa=X&ved=1t:57443&ictx=111'
     },
@@ -24,7 +24,7 @@ const sucursalData = {
 };
 
 // Imagen por defecto si no hay imagen asignada
-import imgDefault from '../assets/hero.png';
+import imgDefault from '../assets/h.jpg';
 
 function Sucursales() {
 
